@@ -28,7 +28,7 @@ export default function AuthSuccess() {
 
       window.history.replaceState({}, document.title, '/auth/success');
       setTimeout(() => {
-        window.location.href = '/dashboard';
+        window.location.replace('/dashboard');
       }, 1500);
     } else {
       navigate('/login');

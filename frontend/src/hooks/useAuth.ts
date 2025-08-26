@@ -89,20 +89,24 @@ export function useAuth(): UseAuthReturn {
 
   const logout = async (): Promise<void> => {
     try {
-      setLoading(true);
+      // Call API first while token is still available
       await api.logout();
     } catch (err) {
-      console.error('Logout error:', err);
-    } finally {
-      localStorage.removeItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
-      localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_DATA);
-      setUser(null);
-      setLoading(false);
-
-      window.location.href = '/login';
+      console.error('Logout API error:', err);
+      // Continue with logout even if API call fails
     }
-  };
 
+    // Clear state and localStorage immediately
+    setUser(null);
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_DATA);
+
+    // Force a complete page reload to ensure clean state
+    // This is more reliable in production deployments (Vercel, Railway, etc.)
+    setTimeout(() => {
+      window.location.replace('/login');
+    }, 0);
+  };
   const updateProfile = async (updates: {
     name?: string;
     avatar?: string;

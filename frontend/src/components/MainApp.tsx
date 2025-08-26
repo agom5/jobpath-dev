@@ -48,6 +48,24 @@ export default function MainApp() {
     status: 'all',
   });
 
+  const handleLogout = async () => {
+    // The logout function in useAuth will handle the redirect
+    await logout();
+  };
+
+  const handleDeleteAccount = async (): Promise<boolean> => {
+    try {
+      const success = await deleteAccount();
+      if (success) {
+        navigate('/login');
+      }
+      return success;
+    } catch (error) {
+      console.error('Account deletion error:', error);
+      return false;
+    }
+  };
+
   const handleEdit = (job: Job) => {
     setEditingJob(job);
     setShowForm(true);
@@ -90,14 +108,6 @@ export default function MainApp() {
 
   const handleCloseSettings = () => {
     setShowSettings(false);
-  };
-
-  const handleDeleteAccount = async (): Promise<boolean> => {
-    const success = await deleteAccount();
-    if (success) {
-      setShowSettings(false);
-    }
-    return success;
   };
 
   const handleViewChange = (view: string) => {
@@ -166,7 +176,7 @@ export default function MainApp() {
       onViewChange={handleViewChange}
       onAddNew={handleAddNew}
       onOpenSettings={handleOpenSettings}
-      onLogout={logout}
+      onLogout={handleLogout}
     >
       {renderMainContent()}
 
