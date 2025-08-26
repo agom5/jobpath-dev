@@ -128,15 +128,19 @@ router.get('/google', (req, res, next) => {
 
 router.get('/google/callback', (req, res, next) => {
   if (!isGoogleOAuthConfigured()) {
-    const frontendURL = (process.env.FRONTEND_URL || 'http://localhost:5173').trim();
+    const frontendURL = (
+      process.env.FRONTEND_URL || 'http://localhost:5173'
+    ).trim();
     return res.redirect(
       `${frontendURL}/auth/error?message=Google OAuth not configured`
     );
   }
 
   passport.authenticate('google', { session: false }, async (err, user) => {
-    const frontendURL = (process.env.FRONTEND_URL || 'http://localhost:5173').trim();
-    
+    const frontendURL = (
+      process.env.FRONTEND_URL || 'http://localhost:5173'
+    ).trim();
+
     if (err) {
       console.error('Google callback error:', err);
       return res.redirect(
