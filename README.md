@@ -2,12 +2,12 @@
 
 > **A production-ready, full-stack job tracking application built with React 19, TypeScript, Node.js, and MongoDB. Features real-time analytics, Cloudinary integration, and enterprise-grade security.**
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-jobpath.dev-blue?style=for-the-badge)](https://jobpath.dev)
+[![Live URL](https://img.shields.io/badge/🌐_Live_Demo-jobpath.dev-blue?style=for-the-badge)](https://jobpath.dev)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/agom5/job-tracker-mern)
 
-![JobPath Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756151316/demo/jobpath-preview.png)
+![JobPath Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756253876/jobpath-dashboard_dseshm.png)
 
-## 🌟 **Why JobPath?**
+## **Why JobPath?**
 
 JobPath isn't just another job tracker, it's a **professional-grade application** that demonstrates modern full-stack development skills. Built with enterprise patterns, cloud integration, and user-centric design.
 
@@ -23,7 +23,7 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 
 ## 🛠️ **Tech Stack**
 
-### **Frontend Excellence**
+### **Frontend**
 
 ```typescript
 ⚡ React 19        // Latest React with Concurrent Features
@@ -35,7 +35,7 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 🎯 Lucide Icons   // Consistent, beautiful icons
 ```
 
-### **Backend Power**
+### **Backend**
 
 ```javascript
 🚀 Node.js + Express    // High-performance server
@@ -56,7 +56,7 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 🚀 CI/CD Ready      # Automated deployments
 ```
 
-## 🎯 **Key Features**
+## **Key Features**
 
 ### **📊 Analytics Dashboard**
 
@@ -125,32 +125,21 @@ npm run dev:backend   # Backend on :5001
 npm run dev:frontend  # Frontend on :5173
 ```
 
-## 🌐 **Live Demo**
-
-**🔗 [jobpath.dev](https://jobpath.dev)**
-
-**Test Credentials:**
-
-- Email: `demo@jobpath.dev`
-- Password: `DemoUser2024!`
-
-_Or sign in with Google OAuth_
-
 ## 📱 **Screenshots**
 
 <div align="center">
 
 ### **🎨 Beautiful Dashboard**
 
-![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756151316/demo/dashboard-screenshot.png)
+![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756253876/jobpath-dashboard_dseshm.png)
 
 ### **🌙 Dark Mode Support**
 
-![Dark Mode](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756151316/demo/dark-mode-screenshot.png)
+![Dark Mode](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756254446/jobpath-theme_gxcohb.png)
 
 ### **📱 Mobile Responsive**
 
-![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756151316/demo/mobile-screenshot.png)
+![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756254451/jobpath-mobile_bygmdt.png)
 
 </div>
 
@@ -183,7 +172,7 @@ src/
 └── utils/              # Helper functions
 ```
 
-## 📊 **Performance Metrics**
+## **Performance Metrics**
 
 - ⚡ **Lighthouse Score**: 95+ Performance
 - 🚀 **First Load**: < 2s on 3G
@@ -255,30 +244,30 @@ PUT    /api/v1/jobs/:id        // Update job
 DELETE /api/v1/jobs/:id        // Delete job
 ```
 
-## 🎯 **What Makes This Special**
+## **What Makes This Special**
 
-### **💼 Professional Development**
+### **Professional Development**
 
 - **Enterprise Patterns** - Scalable architecture and code organization
 - **Type Safety** - Full TypeScript implementation with strict typing
 - **Testing Ready** - Structured for unit and integration tests
 - **Documentation** - Comprehensive inline and API documentation
 
-### **� Modern Technologies**
+### **Modern Technologies**
 
 - **React 19** - Latest React with Concurrent Features
 - **Cloud Integration** - Cloudinary for asset management
 - **Real-time Updates** - Optimistic UI patterns
 - **Progressive Enhancement** - Works offline with service workers
 
-### **🔒 Production Security**
+### **Production Security**
 
 - **Authentication** - Multiple auth strategies with session management
 - **Authorization** - Role-based access control
 - **Data Validation** - Comprehensive input sanitization
 - **Security Headers** - Helmet.js protection suite
 
-## 👨‍💻 **About the Developer**
+## **About the Developer**
 
 **Alejandro Gomez ** - Software Engineering student passionate about creating exceptional user experiences with modern web technologies.
 
@@ -293,12 +282,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 <div align="center">
 
