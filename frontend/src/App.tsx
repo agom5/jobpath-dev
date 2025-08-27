@@ -11,7 +11,7 @@ import AuthContainer from '@/components/auth/AuthContainer.tsx';
 import AuthSuccess from '@/components/auth/AuthSuccess.tsx';
 import AuthError from '@/components/auth/AuthError.tsx';
 import MainApp from '@/components/MainApp.tsx';
-import LoadingSpinner from '@/components/ui/LoadingSpinner.tsx';
+import Skeleton from '@/components/ui/Skeleton.tsx';
 
 export default function App() {
   useTheme();
@@ -25,7 +25,19 @@ export default function App() {
   } = useAuth();
 
   if (authLoading) {
-    return <LoadingSpinner message="Loading JobPath..." />;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+        <div className="text-center">
+          <img
+            src="/logo-sign.png"
+            alt="JobPath Logo"
+            className="h-12 w-auto mx-auto mb-6"
+          />
+          <Skeleton className="w-48 h-4 mx-auto mb-2" />
+          <Skeleton className="w-32 h-3 mx-auto" />
+        </div>
+      </div>
+    );
   }
 
   return (

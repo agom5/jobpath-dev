@@ -4,12 +4,18 @@ import { STATUS_CONFIG } from '@/utils/constants.ts';
 import PageHeader from '../layout/PageHeader.tsx';
 import JobStatusChart from './JobStatusChart.tsx';
 import StatCard from './StatCard.tsx';
+import { DashboardSkeleton } from '../ui/Skeleton.tsx';
 
 interface DashboardProps {
   jobs: Job[];
+  loading?: boolean;
 }
 
-export default function Dashboard({ jobs }: DashboardProps) {
+export default function Dashboard({ jobs, loading = false }: DashboardProps) {
+  if (loading) {
+    return <DashboardSkeleton />;
+  }
+
   const stats: JobStats = {
     total: jobs.length,
     applied: jobs.filter((j) => j.status === 'applied').length,

@@ -33,7 +33,7 @@
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
   }
 
   .animate-slide-up {
@@ -61,7 +61,6 @@
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

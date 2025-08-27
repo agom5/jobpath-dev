@@ -10,6 +10,7 @@ import JobList from '@/components/jobs/JobList.tsx';
 import JobForm from '@/components/jobs/JobForm.tsx';
 import JobDetails from '@/components/jobs/JobDetails.tsx';
 import SettingsPage from '@/components/settings/SettingsPage.tsx';
+import { JobListSkeleton } from '@/components/ui/Skeleton.tsx';
 
 export default function MainApp() {
   const location = useLocation();
@@ -49,7 +50,6 @@ export default function MainApp() {
   });
 
   const handleLogout = async () => {
-    // The logout function in useAuth will handle the redirect
     await logout();
   };
 
@@ -122,19 +122,12 @@ export default function MainApp() {
   const renderMainContent = () => {
     switch (activeView) {
       case 'dashboard':
-        return <Dashboard jobs={jobs} />;
+        return <Dashboard jobs={jobs} loading={jobsLoading} />;
       case 'applications':
         return (
           <>
             {jobsLoading ? (
-              <div className="flex justify-center items-center py-12">
-                <div className="text-center">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Loading applications...
-                  </p>
-                </div>
-              </div>
+              <JobListSkeleton />
             ) : jobsError ? (
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl p-6 text-center">
                 <p className="text-red-600 dark:text-red-400">
@@ -161,7 +154,7 @@ export default function MainApp() {
           </>
         );
       default:
-        return <Dashboard jobs={jobs} />;
+        return <Dashboard jobs={jobs} loading={jobsLoading} />;
     }
   };
 
