@@ -287,7 +287,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 **⭐ Star this repository if you found it helpful!**
 
-[![GitHub stars](https://img.shields.io/github/stars/agom5/job-tracker-mern?style=social)](https://github.com/agom5/job-tracker-mern/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/agom5/job-tracker-mern?style=social)](https://github.com/agom5/jobpath-dev)
 
 _Built by Alejandro_
 
