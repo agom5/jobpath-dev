@@ -1,4 +1,4 @@
-# 🎯 JobPath - Modern Job Application Tracker
+# JobPath - Modern Job Application Tracker
 
 > **A production-ready, full-stack job tracking application built with React 19, TypeScript, Node.js, and MongoDB. Features real-time analytics, Cloudinary integration, and enterprise-grade security.**
 
@@ -11,15 +11,16 @@
 
 JobPath isn't just another job tracker, it's a **professional-grade application** that demonstrates modern full-stack development skills. Built with enterprise patterns, cloud integration, and user-centric design.
 
-### **🚀 Live Features**
+### **Live Features**
 
 - 📊 **Real-time Analytics Dashboard** with interactive charts
 - 🔐 **Multi-Auth System** (Email/Password + Google OAuth)
 - ☁️ **Cloud Avatar System** with Cloudinary integration
+- 🤖 **AI-Powered Summaries** with Google Gemini integration
 - 🌙 **Advanced Theme System** (Light/Dark/System)
 - 📱 **Fully Responsive** with mobile-first design
 - 🔄 **Real-time Updates** with optimistic UI
-- �️ **Enterprise Security** with rate limiting and validation
+- 🛡️ **Enterprise Security** with rate limiting and validation
 
 ## 🛠️ **Tech Stack**
 
@@ -41,6 +42,7 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 🚀 Node.js + Express    // High-performance server
 🍃 MongoDB + Mongoose   // Flexible, scalable database
 🔐 JWT + Passport       // Secure authentication
+🤖 Google Gemini AI     // AI-powered job summaries
 🛡️ Helmet + CORS        // Security hardening
 ⚡ Rate Limiting        // API protection
 ☁️ Cloudinary          // Cloud asset management
@@ -49,11 +51,9 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 ### **DevOps & Production**
 
 ```bash
-🐳 Docker Ready     # Containerized deployment
 ☁️ Vercel + Railway # Modern hosting platforms
 🔒 Environment Vars # Secure configuration
 📊 Health Checks    # Monitoring and uptime
-🚀 CI/CD Ready      # Automated deployments
 ```
 
 ## **Key Features**
@@ -68,10 +68,20 @@ JobPath isn't just another job tracker, it's a **professional-grade application*
 ### **💼 Job Management**
 
 - **Smart Forms** - Intelligent job application creation
+- **AI Job Summaries** - Automatic job description summarization with Google Gemini
 - **Status Tracking** - Applied → Interviewing → Offered → Rejected
 - **Company Profiles** - Rich company information and notes
 - **Search & Filter** - Find applications quickly
 - **Bulk Operations** - Manage multiple applications
+
+### **🤖 AI-Powered Features**
+
+- **Smart Job Summaries** - Automatic summarization of lengthy job descriptions
+- **Google Gemini Integration** - Advanced AI using Gemini 1.5 Flash model
+- **Rate Limited API** - Production-ready with 10 requests/minute per user
+- **Cost Optimized** - Efficient token usage with $300 free credits
+- **Plain Text Output** - Clean, readable summaries without formatting artifacts
+- **Error Handling** - Graceful fallbacks and user-friendly error messages
 
 ### **👤 User Experience**
 
@@ -209,6 +219,7 @@ MONGODB_URI=mongodb+srv://...
 JWT_SECRET=your-jwt-secret
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
+GEMINI_API_KEY=your-google-gemini-api-key
 CORS_ORIGIN=https://jobpath.dev
 ```
 
@@ -242,6 +253,15 @@ POST   /api/v1/jobs            // Create new job
 GET    /api/v1/jobs/:id        // Get job details
 PUT    /api/v1/jobs/:id        // Update job
 DELETE /api/v1/jobs/:id        // Delete job
+```
+
+### **AI Features**
+
+```javascript
+POST / api / v1 / ai / summarize - job; // Generate AI job summary
+// Body: { description: string, position?: string, company?: string }
+// Returns: { summary: string }
+// Rate Limited: 10 requests/minute per user
 ```
 
 ## **What Makes This Special**

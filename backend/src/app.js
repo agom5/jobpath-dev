@@ -13,6 +13,7 @@ import session from 'express-session';
 import connectDB from './config/database.js';
 import authRoutes from './routes/auth.js';
 import jobRoutes from './routes/jobs.js';
+import aiRoutes from './routes/ai.js';
 import { errorHandler, notFound } from './middleware/error.js';
 
 import passport, { initializeGoogleAuth } from './config/passport.js';
@@ -92,6 +93,7 @@ app.get('/api/v1/health', (req, res) => {
 const apiVersion = process.env.API_VERSION || 'v1';
 app.use(`/api/${apiVersion}/auth`, authRoutes);
 app.use(`/api/${apiVersion}/jobs`, jobRoutes);
+app.use(`/api/${apiVersion}/ai`, aiRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

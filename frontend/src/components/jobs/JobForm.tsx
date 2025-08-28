@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
-import { XCircle } from 'lucide-react';
+import { XCircle, Sparkles, Loader2 } from 'lucide-react';
 import { Job, JobFormData } from '@/types/index.ts';
-import { STATUS_OPTIONS } from '@/utils/constants.ts';
+import { STATUS_OPTIONS, LOCAL_STORAGE_KEYS } from '@/utils/constants.ts';
 
 interface JobFormProps {
   job?: Job;
@@ -28,6 +28,7 @@ export default function JobForm({
     notes: job?.notes ?? '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [aiSummaryLoading, setAiSummaryLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,6 +46,50 @@ export default function JobForm({
 
   const handleChange = (field: keyof JobFormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleAISummary = async () => {
+    if (!formData.description?.trim()) {
+      return;
+    }
+
+    setAiSummaryLoading(true);
+    try {
+      const token = localStorage.getItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5001/api/v1'}/ai/summarize-job`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            description: formData.description,
+            position: formData.position,
+            company: formData.company,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          `Failed to generate summary: ${errorData.error || response.statusText}`
+        );
+      }
+
+      const { summary } = await response.json();
+      setFormData((prev) => ({ ...prev, description: summary }));
+    } catch (error) {
+      console.error('AI summary failed:', error);
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error';
+      alert(`AI Summary failed: ${errorMessage}`);
+    } finally {
+      setAiSummaryLoading(false);
+    }
   };
 
   const isLoading = loading || isSubmitting;
@@ -166,15 +211,37 @@ export default function JobForm({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Job Description
-            </label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Job Description
+              </label>
+              <button
+                type="button"
+                onClick={handleAISummary}
+                disabled={
+                  isLoading || aiSummaryLoading || !formData.description?.trim()
+                }
+                className="flex items-center gap-1 px-2 py-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {aiSummaryLoading ? (
+                  <>
+                    <Loader2 className="w-3 h-3 animate-spin" />
+                    Summarizing...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-3 h-3" />
+                    AI Summary
+                  </>
+                )}
+              </button>
+            </div>
             <textarea
               value={formData.description}
               onChange={(e) => handleChange('description', e.target.value)}
               rows={3}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-              placeholder="Brief description of the role..."
+              placeholder="Paste the job description here, then click 'AI Summary' to extract key points..."
               disabled={isLoading}
             />
           </div>
