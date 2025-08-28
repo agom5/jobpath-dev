@@ -19,7 +19,10 @@ interface UseAuthReturn {
 }
 
 export function useAuth(): UseAuthReturn {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    const cached = localStorage.getItem(LOCAL_STORAGE_KEYS.USER_DATA);
+    return cached ? JSON.parse(cached) : null;
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,6 +31,11 @@ export function useAuth(): UseAuthReturn {
       try {
         const token = localStorage.getItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
         if (token) {
+          const cachedUser = localStorage.getItem(LOCAL_STORAGE_KEYS.USER_DATA);
+          if (cachedUser) {
+            setLoading(false);
+          }
+
           const userData = await api.getCurrentUser();
           setUser(userData);
         }
@@ -35,6 +43,7 @@ export function useAuth(): UseAuthReturn {
         console.error('Auth initialization error:', err);
         localStorage.removeItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
         localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_DATA);
+        setUser(null);
       } finally {
         setLoading(false);
       }
@@ -89,20 +98,15 @@ export function useAuth(): UseAuthReturn {
 
   const logout = async (): Promise<void> => {
     try {
-      // Call API first while token is still available
       await api.logout();
     } catch (err) {
       console.error('Logout API error:', err);
-      // Continue with logout even if API call fails
     }
 
-    // Clear state and localStorage immediately
     setUser(null);
     localStorage.removeItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN);
     localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_DATA);
 
-    // Force a complete page reload to ensure clean state
-    // This is more reliable in production deployments (Vercel, Railway, etc.)
     setTimeout(() => {
       window.location.replace('/login');
     }, 0);
