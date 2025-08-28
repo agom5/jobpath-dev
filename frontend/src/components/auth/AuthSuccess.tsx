@@ -40,9 +40,14 @@ export default function AuthSuccess() {
         <img
           src="/logo-sign.png"
           alt="JobPath Logo"
-          className="h-10 w-auto object-contain mx-auto mb-4"
+          className="h-10 w-auto object-contain mx-auto mb-6"
         />
-        <div className="w-48 h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto"></div>
+        <div className="flex flex-col items-center space-y-3">
+          <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-600 border-t-transparent"></div>
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
+            Signing you in...
+          </p>
+        </div>
       </div>
     </div>
   );
