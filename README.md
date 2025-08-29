@@ -5,7 +5,7 @@
 [![Live URL](https://img.shields.io/badge/🌐_Live_Demo-jobpath.dev-blue?style=for-the-badge)](https://jobpath.dev)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/agom5/job-tracker-mern)
 
-![JobPath Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756253876/jobpath-dashboard_dseshm.png)
+![JobPath Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756446627/jobpath-dashboard_b2ar1x.png)
 
 ## **Why JobPath?**
 
@@ -141,15 +141,15 @@ npm run dev:frontend  # Frontend on :5173
 
 ### **🎨 Beautiful Dashboard**
 
-![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756253876/jobpath-dashboard_dseshm.png)
+![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756446627/jobpath-dashboard_b2ar1x.png)
 
 ### **🌙 Dark Mode Support**
 
-![Dark Mode](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756254446/jobpath-theme_gxcohb.png)
+![Dark Mode](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756447027/jobpath-applications-dark_eqnxqm.png)
 
 ### **📱 Mobile Responsive**
 
-![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756254451/jobpath-mobile_bygmdt.png)
+![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756447027/jobpath-mobile-dark_hg81cm.png)
 
 </div>
 
@@ -289,7 +289,7 @@ POST / api / v1 / ai / summarize - job; // Generate AI job summary
 
 ## **About the Developer**
 
-**Alejandro Gomez ** - Software Engineering student passionate about creating exceptional user experiences with modern web technologies.
+**Alejandro Gomez** - Software Engineering student passionate about creating exceptional user experiences with modern web technologies.
 
 - 📧 **Email**: [alexmoro597@gmail.com](mailto:alexmoro597@gmail.com)
 
@@ -307,7 +307,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 **⭐ Star this repository if you found it helpful!**
 
-[![GitHub stars](https://img.shields.io/github/stars/agom5/job-tracker-mern?style=social)](https://github.com/agom5/jobpath-dev)
+[![GitHub stars](https://img.shields.io/github/stars/agom5/jobpath-dev?style=social)](https://github.com/agom5/jobpath-dev)
 
 _Built by Alejandro_
 
