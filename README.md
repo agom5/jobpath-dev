@@ -139,17 +139,33 @@ npm run dev:frontend  # Frontend on :5173
 
 <div align="center">
 
-### **🎨 Beautiful Dashboard**
 
-![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756446627/jobpath-dashboard_b2ar1x.png)
+### **🔐 Login Page**
 
-### **🌙 Dark Mode Support**
+![Login](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756448757/jobpath-login-dark_uxftjn.png)
 
-![Dark Mode](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756447027/jobpath-applications-dark_eqnxqm.png)
+
+### **🌙 Beautiful Dashboard Dark Mode Support**
+
+![Dashboard](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756448684/jobpath-dashboard-dark_ccxp1a.png)
+
+
+### **💼 Add Job Form**
+
+![Job Form](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756448757/jobpath-new-application_e8vcsy.png)
+
+
+### **📄 Job View**
+
+![Job Applications](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756448757/jobpath-job-details_lbetvt.png)
+
 
 ### **📱 Mobile Responsive**
 
 ![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756447027/jobpath-mobile-dark_hg81cm.png)
+
+
+![Mobile](https://res.cloudinary.com/dvtvvxjud/image/upload/v1756448757/jobpath-mobile-applications_rgkkxq.png)
 
 </div>
 
